@@ -36,7 +36,7 @@ class Playlist:
         result = "Список песен:\n"
 
         for i in range(len(self.songs)):
-            result += f"{1}. {self.songs[i]["name"]} - {self.songs[i]["duration"]} c.\n"
+            result += f"{i}. {self.songs[i]["name"]} - {self.songs[i]["duration"]} c.\n"
         return result.strip()
 
 
