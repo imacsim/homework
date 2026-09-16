@@ -19,7 +19,7 @@ def recv_exact(sock: socket.socket, size: int) -> bytes:
     return bytes(data)
 
 
-def send_message(sock: socket.socket, command: str, payload: bytes) -> None:
+def send_message(sock: socket.socket, command: str, payload: bytes = b"") -> None:
     cmd_bytes = command.encode("utf-8")
     header = struct.pack("!I", len(cmd_bytes)) + cmd_bytes + struct.pack("!I", len(payload))
     sock.sendall(header + payload)
