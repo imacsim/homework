@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Добавить монету</h2>
+
+{% if errors %}
+    {% for error in errors %}
+        <p>{{ error }}</p>
+    {% endfor %}
+{% endif %}
+
+<form method="POST">
+    <p>Название: <input type="text" name="name" value="{{ name|default('') }}"></p>
+    <p>Обозначение: <input type="text" name="symbol" value="{{ symbol|default('') }}"></p>
+    <p>Курс ($): <input type="text" name="price" value="{{ price|default('') }}"></p>
+    <button type="submit">Сохранить</button>
+</form>
+{% endblock %}

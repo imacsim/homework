@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Список монет</h2>
+
+{% if coins %}
+    {% for coin in coins %}
+        <p>
+            {{ coin.name }} ({{ coin.symbol }}) — ${{ coin.price }} [{{ coin.status }}]
+            <a href="{{ url_for('detail', coin_id=coin.id) }}">Подробнее</a>
+        </p>
+    {% endfor %}
+{% else %}
+    <p>Список пуст.</p>
+{% endif %}
+{% endblock %}

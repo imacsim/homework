@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>{{ coin.name }}</h2>
+<p>ID: {{ coin.id }}</p>
+<p>Обозначение: {{ coin.symbol }}</p>
+<p>Курс: ${{ coin.price }}</p>
+<p>Статус: {{ coin.status }}</p>
+
+<form method="POST" action="{{ url_for('toggle_status', coin_id=coin.id) }}" style="display:inline;">
+    <button type="submit">Изменить статус</button>
+</form>
+
+<a href="{{ url_for('edit_coin', coin_id=coin.id) }}">Редактировать</a>
+
+<form method="POST" action="{{ url_for('delete_coin', coin_id=coin.id) }}" style="display:inline;">
+    <button type="submit">Удалить</button>
+</form>
+
+<br><br>
+<a href="{{ url_for('index') }}">Назад</a>
+{% endblock %}
